@@ -150,7 +150,7 @@ Publish the website in the LocalHost.
 # OUTPUT:
 ![image](https://github.com/user-attachments/assets/6a045484-eba7-4832-a703-469bb2bcf43f)
 
-![image](https://github.com/user-attachments/assets/9fdde3d7-bd30-4fd4-ab71-5f9358516971)
+![image](![egejgljere](https://github.com/user-attachments/assets/f443eeb5-a958-487f-b60f-b4b63e6dfd7c)
 
 
 # RESULT:
