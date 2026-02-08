@@ -1,5 +1,5 @@
 # Project Responsive Web Design using Bootstrap
-# Date:
+# Date: 
 # AIM:
 To create a simplified clone of Dribbble (https://dribbble.com/) landing page.
 
@@ -24,169 +24,240 @@ Publish the website in the LocalHost.
 
 # PROGRAM :
 ```
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Online Store</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dribbble Shots</title>
   <style>
-    .hero {
-      background: url("{% static 'image.png' %}") center/cover no-repeat;
-      background-size: auto;
-      color: rgb(246, 5, 109);
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f5f5;
+    }
+
+    .navbar {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      text-align: center;
+      background: #2d2d2d;
+      color: white;
+      padding: 10px 20px;
     }
 
-    .product-card:hover {
-      transform: scale(1.03);
-      transition: 0.3s;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-
-    .offer-banner {
-      background-color: #ffc107;
-      color: #000;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.25rem;
+    .navbar .logo {
+      font-size: 1.5rem;
       font-weight: bold;
     }
-    footer {
-      background-color: #343a40;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
+
+    .navbar .nav-links,
+    .navbar .auth {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .sub-header {
+      background: #fafafa;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .sub-actions button {
+      margin-left: 10px;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+    }
+
+    .sign-up {
+      background: #ea4c89;
+      color: white;
+      border: none;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      padding: 15px 20px;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .card .info {
+      padding: 10px;
+    }
+
+    .card .author {
+      font-weight: bold;
+      margin: 0 0 4px;
+    }
+
+    .card .stats {
+      font-size: 0.8rem;
+      color: #666;
+      margin: 0;
     }
   </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand">ZEBRONICS</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <section class="hero">
-    <div class="container">
-      <div class="content">
-      <br><br><br><br><br><br><br><br><br><br><br>
-      <h1>Welcome to Zebronics</h1>
-      <p>Click shop now for amazing products!</p>
-      <a href="#products" class="btn btn-warning mt-3">Shop Now</a>
-      </div>
-    </div>
-  </section>
-  <div class="offer-banner">
-    !! Limited Time Offer: Get up to 50% off on selected items!
-  </div>
-  <section id="products" class="py-5">
-    <div class="container">
-      <h2 class="mb-4 text-center">Our Products</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card product-card">
-            <img src="{% static 'lap.png' %}" class="card-img-top" alt="Product 1">
-            <div class="card-body">
-              <h5 class="card-title">ZEBRONICS NBC 5S</h5>
-              <p class="card-text">$796/Rs.70,000</p>
-              <button class="btn btn-primary add-to-cart" data-product="Product One">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card product-card">
-            <img src="{% static 'hp.png' %}"height="390px" width="225px" class="card-img-top" alt="Product 2">
-            <div class="card-body">
-              <h5 class="card-title">ZEBRONICS THUNDER PRO WIRELESS HEADPHONES</h5>
-              <p class="card-text">$34/Rs.3,000</p>
-              <button class="btn btn-primary add-to-cart" data-product="Product Two">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card product-card">
-            <img src="{% static 'key.png' %}" height="415px" width="420px" class="card-img-top" alt="Product 3">
-            <div class="card-body">
-              <h5 class="card-title">ZEBRONICS NITRO PLUS KEYBOARD</h5>
-              <p class="card-text">$11.3/Rs.1,000</p>
-              <button class="btn btn-primary add-to-cart" data-product="Product Three">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="py-5 bg-light">
-    <div class="container">
-      <h3>Your Cart</h3>
-      <ul id="cart-list" class="list-group mb-3">
-        <li class="list-group-item">No items in cart.</li>
+  <header class="navbar">
+    <div class="logo">Dribbble</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="# "> Shots</a></li>
+        <li><a href="# "> Designers</a></li>
+        <li><a href="# "> Teams</a></li>
+        <li><a href="# "> Community</a></li>
+        <li><a href="# "> Jobs</a></li>
       </ul>
-      <p><strong>Total Items:</strong> <span id="cart-count">0</span></p>
+    </nav>
+    <div class="auth">
+      <a href="#">Sign up</a>
+      <a href="#">Sign in</a>
+    </div>
+  </header>
+
+  <section class="sub-header">
+    <p>What are you working on? <strong>Dribbble</strong> is show and tell for designers.</p>
+    <div class="sub-actions">
+      <button>Learn more</button>
+      <button class="sign-up">Sign up</button>
     </div>
   </section>
-  <footer>
-    <div class="container">
-      <h4>2025 ZEBRONICS. ALL RIGHTS RESERVED.</h4>
+
+  <section class="filter-bar">
+    <select><option>Popular</option></select>
+    <select><option>Shots</option></select>
+    <select><option>Now</option></select>
+  </section>
+
+  <main class="grid">
+    <!-- Repeat this block for more cards -->
+    <div class="card">
+      <img src="p1.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Indhu Priya</p>
+        <p class="stats">9,876 views • 14 comments • 290 likes</p>
+      </div>
     </div>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const cart = {};
-    const cartList = document.getElementById('cart-list');
-    const cartCount = document.getElementById('cart-count');
-
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-      button.addEventListener('click', () => {
-        const product = button.getAttribute('data-product');
-        cart[product] = (cart[product] || 0) + 1;
-        updateCart();
-      });
-    });
-
-    function updateCart() {
-      cartList.innerHTML = '';
-      let total = 0;
-
-      for (const [product, quantity] of Object.entries(cart)) {
-        const li = document.createElement('li');
-        li.className = 'list-group-item d-flex justify-content-between align-items-center';
-        li.innerHTML = `
-          <span>${product}</span>
-          <span class="badge bg-primary rounded-pill">${quantity}</span>
-        `;
-        cartList.appendChild(li);
-        total += quantity;
-      }
-
-      if (total === 0) {
-        cartList.innerHTML = '<li class="list-group-item">No items in cart.</li>';
-      }
-
-      cartCount.textContent = total;
-    }
-  </script>
+    <div class="card">
+      <img src="p2.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Praneya</p>
+        <p class="stats">2,222 views • 13 comments • 236 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p3.png" alt="Design shot">
+      <div class="info">
+        <p class="author">James-web desinger</p>
+        <p class="stats">3,985 views • 17 comments • 264 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p4.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Aashika Jain</p>
+        <p class="stats">292 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p5.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Jackson Jhons</p>
+        <p class="stats">2,602 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p6.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Diana</p>
+        <p class="stats">2,602 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p7.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Ronas IT/UV</p>
+        <p class="stats">2,602 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p8.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Chandhana</p>
+        <p class="stats">2,602 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p9.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Mr.Mockup</p>
+        <p class="stats">2,602 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p10.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Md.Harun</p>
+        <p class="stats">2,602 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p11.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Fernia Fender</p>
+        <p class="stats">2,602 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="p12.png" alt="Design shot">
+      <div class="info">
+        <p class="author">Adom</p>
+        <p class="stats">2,602 views • 23 comments • 186 likes</p>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </main>
 </body>
 </html>
 ```
 # OUTPUT:
-
-![alt text](<Screenshot 2025-10-11 190851.png>)
-![alt text](<Screenshot 2025-10-11 190932.png>)
+![image](https://github.com/user-attachments/assets/26fc7795-de42-405b-826a-7c382209e6de)
 
 # RESULT:
 The Project for responsive web design using Bootstrap is completed successfully.
